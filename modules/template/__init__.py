@@ -1,0 +1,1 @@
+from modules.template.json_template import EmbeddingJSONTemplate

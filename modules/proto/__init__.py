@@ -1,0 +1,1 @@
+from modules.proto.embedding import EmbeddingServiceServicer, EmbeddingRequest, EmbeddingResponse, add_EmbeddingServiceServicer_to_server, EmbeddingServiceStub

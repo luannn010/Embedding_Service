@@ -1,0 +1,17 @@
+{
+    "definition": {
+        "collection_name": "test_collection",
+        "partition_name": "test_partition",
+        "description": "This is a test collection.",
+        "dimension": 128,
+        "metric_type": "L2"
+    },
+    "embeddings": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6
+    ]
+}
