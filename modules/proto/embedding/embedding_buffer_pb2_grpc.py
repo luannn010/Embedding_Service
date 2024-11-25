@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from modules.proto.embedding import embedding_buffer_pb2 as embedding_dot_embedding__buffer__pb2
+import modules.proto.embedding.embedding_buffer_pb2 as embedding__buffer__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in embedding/embedding_buffer_pb2_grpc.py depends on'
+        + f' but the generated code in embedding_buffer_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -26,7 +26,8 @@ if _version_not_supported:
 
 
 class EmbeddingServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Service definition for embedding
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -36,16 +37,17 @@ class EmbeddingServiceStub(object):
         """
         self.StreamEmbedding = channel.unary_stream(
                 '/embedding.EmbeddingService/StreamEmbedding',
-                request_serializer=embedding_dot_embedding__buffer__pb2.EmbeddingRequest.SerializeToString,
-                response_deserializer=embedding_dot_embedding__buffer__pb2.EmbeddingResponse.FromString,
+                request_serializer=embedding__buffer__pb2.EmbeddingRequest.SerializeToString,
+                response_deserializer=embedding__buffer__pb2.EmbeddingResponse.FromString,
                 _registered_method=True)
 
 
 class EmbeddingServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Service definition for embedding
+    """
 
     def StreamEmbedding(self, request, context):
-        """Stream the embeddings to another service
+        """Stream the JSON data to another service
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -56,8 +58,8 @@ def add_EmbeddingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StreamEmbedding': grpc.unary_stream_rpc_method_handler(
                     servicer.StreamEmbedding,
-                    request_deserializer=embedding_dot_embedding__buffer__pb2.EmbeddingRequest.FromString,
-                    response_serializer=embedding_dot_embedding__buffer__pb2.EmbeddingResponse.SerializeToString,
+                    request_deserializer=embedding__buffer__pb2.EmbeddingRequest.FromString,
+                    response_serializer=embedding__buffer__pb2.EmbeddingResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -68,7 +70,8 @@ def add_EmbeddingServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class EmbeddingService(object):
-    """Missing associated documentation comment in .proto file."""
+    """Service definition for embedding
+    """
 
     @staticmethod
     def StreamEmbedding(request,
@@ -85,8 +88,8 @@ class EmbeddingService(object):
             request,
             target,
             '/embedding.EmbeddingService/StreamEmbedding',
-            embedding_dot_embedding__buffer__pb2.EmbeddingRequest.SerializeToString,
-            embedding_dot_embedding__buffer__pb2.EmbeddingResponse.FromString,
+            embedding__buffer__pb2.EmbeddingRequest.SerializeToString,
+            embedding__buffer__pb2.EmbeddingResponse.FromString,
             options,
             channel_credentials,
             insecure,

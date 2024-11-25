@@ -2,16 +2,18 @@ syntax = "proto3";
 
 package embedding;
 
+// Service definition for embedding
 service EmbeddingService {
-  // Stream the embeddings to another service
+  // Stream the JSON data to another service
   rpc StreamEmbedding (EmbeddingRequest) returns (stream EmbeddingResponse);
 }
 
+// Request message containing the file path
 message EmbeddingRequest {
   string file_path = 1; // Path to the embedding file
 }
 
+// Response message containing only the JSON stream
 message EmbeddingResponse {
-  repeated float embedding = 1; // Embedding data
-  string json_template = 2; // JSON data
+  string json_stream = 1; // JSON data
 }

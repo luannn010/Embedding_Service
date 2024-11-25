@@ -24,10 +24,7 @@ class EmbeddingService(EmbeddingServiceServicer):
             if not isinstance(embedding_vector, list) or not all(isinstance(x, float) for x in embedding_vector):
                 raise ValueError("Embedding vector must be a list of floats.")
             stream = EmbeddingJSONTemplate(definition_json, embedding_vector)
-            # print("Stream is successfully created")
-            # print("Stream:", stream.to_json())
-            # Create a response with the embedding
-            response = EmbeddingResponse(embedding=embedding_vector, json_template=stream.to_json())
+            response = EmbeddingResponse(json_stream=stream.to_json())
             yield response
 
         except Exception as e:
