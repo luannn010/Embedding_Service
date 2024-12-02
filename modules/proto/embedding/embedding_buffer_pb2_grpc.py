@@ -47,8 +47,7 @@ class EmbeddingServiceServicer(object):
     """
 
     def StreamEmbedding(self, request, context):
-        """Stream the JSON data to another service
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

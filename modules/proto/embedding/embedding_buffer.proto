@@ -4,16 +4,16 @@ package embedding;
 
 // Service definition for embedding
 service EmbeddingService {
-  // Stream the JSON data to another service
   rpc StreamEmbedding (EmbeddingRequest) returns (stream EmbeddingResponse);
 }
 
-// Request message containing the text file stream
+// Request message containing the file stream and metadata
 message EmbeddingRequest {
-  bytes file_stream = 1; // Byte stream of the file
+  string file_name = 1; // Original file name
+  bytes file_stream = 2; // Byte stream of the file
 }
 
-// Response message containing only the JSON stream
+// Response message containing the JSON stream
 message EmbeddingResponse {
   string json_stream = 1; // JSON data
 }

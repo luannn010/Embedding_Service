@@ -76,21 +76,3 @@ class EmbeddingJSONTemplate:
         print(f"JSON saved to {file_path}")
 
 
-# # Example usage
-# if __name__ == "__main__":
-#     definition_json = '''
-#     {
-#         "collection_name": "example_collection",
-#         "partition_name": "example_partition",
-#         "description": "An example definition.",
-#         "dimension": 128,
-#         "metric_type": "L2"
-#     }
-#     '''
-#     embedding_list = [[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]]
-
-#     # Automatically generate the JSON output
-#     template = EmbeddingJSONTemplate(definition_json, embedding_list)
-
-#     # Access the JSON output if needed
-#     json_output = template.json_output
