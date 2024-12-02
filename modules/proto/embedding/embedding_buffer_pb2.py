@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x65mbedding_buffer.proto\x12\tembedding\"%\n\x10\x45mbeddingRequest\x12\x11\n\tfile_path\x18\x01 \x01(\t\"(\n\x11\x45mbeddingResponse\x12\x13\n\x0bjson_stream\x18\x01 \x01(\t2b\n\x10\x45mbeddingService\x12N\n\x0fStreamEmbedding\x12\x1b.embedding.EmbeddingRequest\x1a\x1c.embedding.EmbeddingResponse0\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x65mbedding_buffer.proto\x12\tembedding\"\'\n\x10\x45mbeddingRequest\x12\x13\n\x0b\x66ile_stream\x18\x01 \x01(\x0c\"(\n\x11\x45mbeddingResponse\x12\x13\n\x0bjson_stream\x18\x01 \x01(\t2b\n\x10\x45mbeddingService\x12N\n\x0fStreamEmbedding\x12\x1b.embedding.EmbeddingRequest\x1a\x1c.embedding.EmbeddingResponse0\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +32,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'embedding_buffer_pb2', _glo
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_EMBEDDINGREQUEST']._serialized_start=37
-  _globals['_EMBEDDINGREQUEST']._serialized_end=74
-  _globals['_EMBEDDINGRESPONSE']._serialized_start=76
-  _globals['_EMBEDDINGRESPONSE']._serialized_end=116
-  _globals['_EMBEDDINGSERVICE']._serialized_start=118
-  _globals['_EMBEDDINGSERVICE']._serialized_end=216
+  _globals['_EMBEDDINGREQUEST']._serialized_end=76
+  _globals['_EMBEDDINGRESPONSE']._serialized_start=78
+  _globals['_EMBEDDINGRESPONSE']._serialized_end=118
+  _globals['_EMBEDDINGSERVICE']._serialized_start=120
+  _globals['_EMBEDDINGSERVICE']._serialized_end=218
 # @@protoc_insertion_point(module_scope)

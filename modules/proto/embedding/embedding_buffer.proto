@@ -8,9 +8,9 @@ service EmbeddingService {
   rpc StreamEmbedding (EmbeddingRequest) returns (stream EmbeddingResponse);
 }
 
-// Request message containing the file path
+// Request message containing the text file stream
 message EmbeddingRequest {
-  string file_path = 1; // Path to the embedding file
+  bytes file_stream = 1; // Byte stream of the file
 }
 
 // Response message containing only the JSON stream

@@ -15,38 +15,35 @@ class Labeler:
         openai.api_key = Config.OPENAI_API_KEY
         print("OpenAI API key set successfully.")
 
-    def load_text_file(self, file_path):
+    def load_text_from_stream(self, file_stream):
         """
-        Loads a text file and returns a list of lines.
+        Loads text content from a file stream.
         Args:
-            file_path (str): Path to the text file.
+            file_stream (bytes): Binary content of the file.
         Returns:
-            list: A list of text lines.
+            str: Decoded text content.
         """
         try:
-            with open(file_path, 'r', encoding='utf-8') as file:
-                return [line.strip() for line in file if line.strip()]
-        except FileNotFoundError:
-            raise FileNotFoundError(f"The file '{file_path}' was not found.")
+            # Decode the file stream as UTF-8
+            return file_stream.decode('utf-8')
+        except UnicodeDecodeError:
+            raise ValueError("The file stream could not be decoded as UTF-8.")
         except Exception as e:
-            raise Exception(f"An error occurred while reading the file: {e}")
+            raise Exception(f"An error occurred while processing the file stream: {e}")
 
-    def create_definition(self, file_path):
+    def create_definition_from_content(self, file_stream):
         """
         Generates a definition for embedding-based collections using OpenAI's API
-        and the content from the specified file.
-        
+        and the content from a file stream.
+
         Args:
-            file_path (str): Path to the text file containing input data.
-        
+            file_stream (bytes): Binary content of the file.
+
         Returns:
             dict: A structured dictionary representing the definition.
         """
-        # Load the text content from the file
-        texts = self.load_text_file(file_path)
-
-        # Combine the text lines into a single string for the prompt
-        input_text = "\n".join(texts)
+        # Load the text content from the file stream
+        input_text = self.load_text_from_stream(file_stream)
 
         try:
             # Construct the prompt for the model
