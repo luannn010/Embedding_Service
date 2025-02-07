@@ -25,7 +25,7 @@ def get_json_stream(file_path, file_stream):
         print(f"gRPC Error: {e.code()} - {e.details()}")
 
 if __name__ == "__main__":
-    test_file_path = "embed/stories/brave_luna.txt"
+    test_file_path = "embed/stories/small_village.txt"
     file_stream = get_file_stream(test_file_path)
     print("Streaming JSON response:")
     get_json_stream(test_file_path, file_stream)

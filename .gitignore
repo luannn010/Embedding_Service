@@ -7,3 +7,4 @@ venv/
 __pycache__/
 test/__pycache__/
 test/.pytest_cache/
+embed/embedded/*
